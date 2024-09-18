@@ -6,7 +6,7 @@ from yoloseg import YOLOSeg
 cap = cv2.VideoCapture(0)
 
 # Initialize YOLOv5 Instance Segmentator
-model_path = "models/yolov8m-seg.onnx"
+model_path = "models/best.onnx"
 yoloseg = YOLOSeg(model_path, conf_thres=0.3, iou_thres=0.3)
 
 cv2.namedWindow("Detected Objects", cv2.WINDOW_NORMAL)
