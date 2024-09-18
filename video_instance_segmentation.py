@@ -37,7 +37,7 @@ model = YOLO('models/best.pt')
 
 # Initialize video capture and writer
 input_video = 'video6.mp4'
-output_video = 'output_video.mp4'
+output_video = 'output_video_1.mp4'
 
 cap = cv2.VideoCapture(input_video)
 fourcc = cv2.VideoWriter_fourcc(*"mp4v")
@@ -63,7 +63,7 @@ while cap.isOpened():
     # Write the frame with masks to the output video
     #out.write(frame_with_masks)
 
-    # Display the frame with masks
+    # # Display the frame with masks
     cv2.imshow('Video with Masks', frame_with_masks)
 
     # Break loop on 'q' key press
