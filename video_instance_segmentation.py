@@ -36,7 +36,7 @@ def overlay(image, mask, color, alpha, resize=None):
 model = YOLO('models/best.pt')
 
 # Initialize video capture and writer
-input_video = 'video6.mp4'
+input_video = 'video1.mp4'
 output_video = 'output_video_1.mp4'
 
 cap = cv2.VideoCapture(input_video)
