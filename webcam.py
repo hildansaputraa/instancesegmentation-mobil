@@ -26,6 +26,15 @@ if not cap.isOpened():
 # Loop over frames from the webcam
 prev_time = 0  # Inisialisasi waktu sebelumnya untuk menghitung FPS
 
+
+output_video = 'output_video_5.mp4'
+
+fourcc = cv2.VideoWriter_fourcc(*"mp4v")
+fps = cap.get(cv2.CAP_PROP_FPS)
+width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+out = cv2.VideoWriter(output_video, fourcc, fps, (width, height))
+
 while True:
     start_time = time.time()  # Waktu mulai frame ini
 
@@ -73,8 +82,8 @@ while True:
     cv2.putText(annotated_frame, f'FPS: {int(fps)}', (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
     # Display the frame with YOLO predictions, warnings, and FPS
-    cv2.imshow('Webcam YOLO', annotated_frame)
-
+    #cv2.imshow('Webcam YOLO', annotated_frame)
+    out.write(annotated_frame)
     # Break the loop if 'q' is pressed
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
